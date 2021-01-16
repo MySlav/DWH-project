@@ -1,0 +1,1331 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/27/2020 3:45:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-F51I5Q7"
+  DTS:CreatorName="DESKTOP-F51I5Q7\Mislav"
+  DTS:DTSID="{65B29490-0B3D-491C-8145-C16738D97039}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1050"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{47BE1919-4AE0-4F6A-B1EC-19331A62FFE8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\d_Location"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E5039FBA-AB23-44CA-A57D-DFA4A15BB422}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="d_Location">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\d_Location\d_Location"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1E297CBB-213E-4914-98B7-99355AA869D3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="d_Location"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\d_Location\d_Location\Insert Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[d_Location]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_Location\d_Location\Insert Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{1074A143-B367-4F8F-9866-F6B145DE6A95}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].Columns[BorderName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BorderName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].Columns[StateName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].Columns[PortCode]"
+                          cachedDataType="i4"
+                          cachedName="PortCode"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortCode]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].Columns[PortName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PortName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          dataType="i4"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          name="BorderName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortCode]"
+                          dataType="i4"
+                          name="PortCode" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          name="PortName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\d_Location\d_Location\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\d_Location\d_Location\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[d_Location] SET [BorderName] = ?,[PortName] = ?,[StateName] = ? WHERE [PortCode] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_Location\d_Location\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{1074A143-B367-4F8F-9866-F6B145DE6A95}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].Columns[BorderName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BorderName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].Columns[PortCode]"
+                          cachedDataType="i4"
+                          cachedName="PortCode"
+                          externalMetadataColumnId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].Columns[PortName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PortName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]" />
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\d_Location\d_Location\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [BorderName], [PortCode], [PortName], [StateName] FROM [dbo].[d_Location]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="{1074A143-B367-4F8F-9866-F6B145DE6A95}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_DWH]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BorderName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BorderName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BorderName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PortCode]"
+                          cachedDataType="i4"
+                          cachedName="PortCode"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PortCode]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PortName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PortName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PortName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateName"
+                          externalMetadataColumnId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateName]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          name="BorderName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PortCode]"
+                          dataType="i4"
+                          name="PortCode" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          name="PortName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\d_Location\d_Location\STAGE Location"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="STAGE Location"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[OrderTypes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+dbo.Border.BorderName as BorderName,
+dbo.State.StateName as StateName,
+dbo.Port.PortCode as PortCode,
+dbo.Port.PortName as PortName
+from dbo.Port
+
+inner join dbo.State on dbo.State.ID = dbo.Port.StateID
+inner join dbo.Border on dbo.Border.ID = dbo.Port.BorderID</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_Location\d_Location\STAGE Location.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[BorderName]"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]"
+                          name="BorderName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]"
+                          name="StateName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[PortCode]"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]"
+                          name="PortCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[PortName]"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]"
+                          name="PortName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          name="BorderName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateName" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[PortCode]"
+                          dataType="i4"
+                          name="PortCode" />
+                        <externalMetadataColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          name="PortName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[BorderName]"
+                          name="BorderName" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                          name="StateName" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[PortCode]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[PortCode]"
+                          name="PortCode" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[PortName]"
+                          name="PortName" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\d_Location\d_Location.Paths[Changing Attribute Updates Output]"
+                  endId="Package\d_Location\d_Location\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Changing Attribute Updates Output"
+                  startId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+                <path
+                  refId="Package\d_Location\d_Location.Paths[New Output]"
+                  endId="Package\d_Location\d_Location\Insert Destination.Inputs[OLE DB Destination Input]"
+                  name="New Output"
+                  startId="Package\d_Location\d_Location\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\d_Location\d_Location.Paths[OLE DB Source Output]"
+                  endId="Package\d_Location\d_Location\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\d_Location\d_Location\STAGE Location.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\d_ModeOfTransport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{15F453A1-163A-4F62-9F38-DF8F2CBA2F36}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="d_ModeOfTransport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\d_ModeOfTransport\d_ModeOfTransport"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{80E01B64-EAF6-4848-976A-171E1A35E7CC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="d_ModeOfTransport"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DWH destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[d_ModeOfTransport]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Connections[OleDbConnection]"
+                      connectionManagerID="{1074A143-B367-4F8F-9866-F6B145DE6A95}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input].Columns[MoTName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MoTName"
+                          externalMetadataColumnId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTName]"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output].Columns[MoTName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTID]"
+                          dataType="i4"
+                          name="MoTID" />
+                        <externalMetadataColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MoTName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="STAGE Location"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[OrderTypes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+dbo.ModeOfTransport.MotName as MoTName
+from dbo.ModeOfTransport</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output].Columns[MoTName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[MoTName]"
+                          length="50"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output].Columns[MoTName]"
+                          name="MoTName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output].ExternalColumns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MoTName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[MoTName]"
+                          name="MoTName" />
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\d_ModeOfTransport\d_ModeOfTransport.Paths[OLE DB Source Output]"
+                  endId="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA126B1C-2F83-400E-8A89-0990C3624F24}"
+      DTS:From="Package\d_Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\d_ModeOfTransport" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\d_Location\d_Location"
+          TopLeft="89,78" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="336,251"
+          Size="336,294"
+          Id="Package\d_Location"
+          TopLeft="70,67" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\d_ModeOfTransport\d_ModeOfTransport"
+          TopLeft="115,74" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="377,246"
+          Size="377,289"
+          Id="Package\d_ModeOfTransport"
+          TopLeft="529,64" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="406,211.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123,0"
+              Start="0,0"
+              End="115.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="115.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\d_Location\d_Location">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\d_Location\d_Location\STAGE Location"
+          TopLeft="235.5,5.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\d_Location\d_Location\Slowly Changing Dimension"
+          TopLeft="207.5,107.5" />
+        <EdgeLayout
+          Id="Package\d_Location\d_Location.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\d_Location\d_Location\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\d_Location\d_Location.Paths[New Output]"
+          TopLeft="278.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.5,60"
+              Start="0,0"
+              End="-191.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-187.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.5,24.2735042735043"
+                    Point2="-191.5,24.2735042735043"
+                    Point3="-191.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-191.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\d_Location\d_Location\OLE DB Command"
+          TopLeft="423,218.5" />
+        <EdgeLayout
+          Id="Package\d_Location\d_Location.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160.5,69"
+              Start="0,0"
+              End="160.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9145299145299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9145299145299"
+                    Point2="0,27.9145299145299"
+                    Point3="4,27.9145299145299" />
+                  <mssgle:LineSegment
+                    End="156.5,27.9145299145299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="156.5,27.9145299145299"
+                    Point2="160.5,27.9145299145299"
+                    Point3="160.5,31.9145299145299" />
+                  <mssgle:LineSegment
+                    End="160.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.71609374999997,32.9145299145299,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\d_Location\d_Location\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{1074A143-B367-4F8F-9866-F6B145DE6A95}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[d_Location]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;STAGE Location.Outputs[OLE DB Source Output].Columns[BorderName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BorderName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;STAGE Location.Outputs[OLE DB Source Output].Columns[PortCode]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PortCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;STAGE Location.Outputs[OLE DB Source Output].Columns[PortName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PortName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;STAGE Location.Outputs[OLE DB Source Output].Columns[StateName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StateName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\d_Location\d_Location\STAGE Location">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\d_Location\d_Location\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\d_ModeOfTransport\d_ModeOfTransport">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination"
+          TopLeft="55,170" />
+        <EdgeLayout
+          Id="Package\d_ModeOfTransport\d_ModeOfTransport.Paths[OLE DB Source Output]"
+          TopLeft="135.25,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\d_ModeOfTransport\d_ModeOfTransport\STAGE Location">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\d_ModeOfTransport\d_ModeOfTransport\DWH destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

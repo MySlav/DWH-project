@@ -1,0 +1,31 @@
+/****** Kreiranje STAGE baze iz .bak filea od OLTPA  ******/
+
+  RESTORE FILELISTONLY FROM DISK='C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\US_Crossings_OLTP.bak'
+
+
+RESTORE DATABASE US_Crossings_STAGE FROM DISK='C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\US_Crossings_OLTP.bak'
+WITH REPLACE,
+   MOVE 'US_Crossings_OLTP' TO 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\US_Crossings_STAGE.mdf',
+   MOVE 'US_Crossings_OLTP_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\US_Crossings_STAGE.ldf'
+
+
+    ALTER TABLE US_Crossings_STAGE.dbo.Crossings
+	DROP CONSTRAINT FK__Crossings__MoTID__2F10007B,FK__Crossings__PortI__2E1BDC42,PK__Crossing__3214EC273CA3FDED;
+
+	ALTER TABLE US_Crossings_STAGE.dbo.Port
+	DROP CONSTRAINT FK__Port__BorderID__29572725,FK__Port__StateID__286302EC,PK__Port__3214EC27124CF684;
+
+	ALTER TABLE US_Crossings_STAGE.dbo.Border
+	DROP CONSTRAINT PK__Border__3214EC274FE20649;
+
+	ALTER TABLE US_Crossings_STAGE.dbo.ModeOfTransport
+	DROP CONSTRAINT PK__ModeOfTr__3214EC2757EA971C;
+
+	ALTER TABLE US_Crossings_STAGE.dbo.State
+	DROP CONSTRAINT PK__State__3214EC27B21B454F;
+
+	TRUNCATE TABLE Crossings
+	TRUNCATE TABLE Port
+	TRUNCATE TABLE Border
+	TRUNCATE TABLE ModeOfTransport
+	TRUNCATE TABLE State

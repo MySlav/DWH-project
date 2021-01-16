@@ -1,0 +1,2143 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/27/2020 12:50:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-F51I5Q7"
+  DTS:CreatorName="DESKTOP-F51I5Q7\Mislav"
+  DTS:DTSID="{804F64B3-28E7-48BD-96B2-0ABD84BE79F8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1050"
+  DTS:ObjectName="Load STAGE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{02FE7CFE-9490-4CF0-B8B3-474724A23CAF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load STAGE tables from Us_Crossings"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0863A575-89F8-4309-AC9B-CC76041672F2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load STAGE tables from Us_Crossings">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load STAGE tables from Us_Crossings\Borders"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E0BB18A5-DECF-44F7-853B-7384EB8C8492}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Borders"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Border]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BorderName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BorderName"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderName]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          name="BorderName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Border]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{BBB6C93B-11BB-4126-86A1-8AAC2BD560E6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BorderName]"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderName]"
+                          name="BorderName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          name="BorderName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BorderName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BorderName]"
+                          name="BorderName" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load STAGE tables from Us_Crossings\Borders.Paths[OLE DB Source Output]"
+                  endId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load STAGE tables from Us_Crossings\Crossings"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E7B85DCA-4886-4234-AE12-9C4AF3BC3826}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Crossings"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Crossings]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PortID]"
+                          cachedDataType="i4"
+                          cachedName="PortID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MoTID]"
+                          cachedDataType="i4"
+                          cachedName="MoTID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Value]"
+                          cachedDataType="i8"
+                          cachedName="Value"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortID]"
+                          dataType="i4"
+                          name="PortID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTID]"
+                          dataType="i4"
+                          name="MoTID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                          dataType="i8"
+                          name="Value" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Crossings]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{BBB6C93B-11BB-4126-86A1-8AAC2BD560E6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortID]"
+                          name="PortID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MoTID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTID]"
+                          name="MoTID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]"
+                          name="Value"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortID]"
+                          dataType="i4"
+                          name="PortID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MoTID]"
+                          dataType="i4"
+                          name="MoTID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                          dataType="i8"
+                          name="Value" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortID]"
+                          name="PortID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MoTID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MoTID]"
+                          name="MoTID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          name="Date" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Value]"
+                          dataType="i8"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Value]"
+                          name="Value" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load STAGE tables from Us_Crossings\Crossings.Paths[OLE DB Source Output]"
+                  endId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{646BC1F1-13CB-4BA5-9208-313D994ED219}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ModeOfTransport"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ModeOfTransport]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MoTName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MoTName"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTName]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MoTName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ModeOfTransport]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{BBB6C93B-11BB-4126-86A1-8AAC2BD560E6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MoTName]"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].Columns[MoTName]"
+                          name="MoTName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MoTName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MoTName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MoTName]"
+                          name="MoTName" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport.Paths[OLE DB Source Output]"
+                  endId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load STAGE tables from Us_Crossings\Port"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D19ED4B0-7F1C-49AC-A1F4-D46F7482E1D7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Port"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Port]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateID]"
+                          cachedDataType="i4"
+                          cachedName="StateID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BorderID]"
+                          cachedDataType="i4"
+                          cachedName="BorderID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PortCode]"
+                          cachedDataType="i4"
+                          cachedName="PortCode"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortCode]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortCode]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PortName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PortName"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortName]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
+                          dataType="i4"
+                          name="StateID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BorderID]"
+                          dataType="i4"
+                          name="BorderID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortCode]"
+                          dataType="i4"
+                          name="PortCode" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          name="PortName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Port]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{BBB6C93B-11BB-4126-86A1-8AAC2BD560E6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateID]"
+                          name="StateID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BorderID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[BorderID]"
+                          name="BorderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortCode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortCode]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortCode]"
+                          name="PortCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortName]"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].Columns[PortName]"
+                          name="PortName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
+                          dataType="i4"
+                          name="StateID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BorderID]"
+                          dataType="i4"
+                          name="BorderID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortCode]"
+                          dataType="i4"
+                          name="PortCode" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          name="PortName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateID]"
+                          name="StateID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BorderID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BorderID]"
+                          name="BorderID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortCode]"
+                          name="PortCode" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PortName]"
+                          name="PortName" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load STAGE tables from Us_Crossings\Port.Paths[OLE DB Source Output]"
+                  endId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load STAGE tables from Us_Crossings\State"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A0A8FADB-1E05-489C-A05F-5C9A93E3060F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="State"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[State]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateName"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[State]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{BBB6C93B-11BB-4126-86A1-8AAC2BD560E6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.US_Crossings_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateName]"
+                          name="StateName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                          name="StateName" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load STAGE tables from Us_Crossings\State.Paths[OLE DB Source Output]"
+                  endId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5DF22792-72EC-4CA0-8844-84E96FA70D04}"
+          DTS:From="Package\Load STAGE tables from Us_Crossings\Borders"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load STAGE tables from Us_Crossings\Crossings" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{1D6ACADE-6DA8-492A-9790-06A040114306}"
+          DTS:From="Package\Load STAGE tables from Us_Crossings\Crossings"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load STAGE tables from Us_Crossings\ModeOfTransport" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{AAD56279-047E-4982-8A43-4BC6A6241658}"
+          DTS:From="Package\Load STAGE tables from Us_Crossings\ModeOfTransport"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Load STAGE tables from Us_Crossings\Port" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2989785-1998-402D-8C2F-897B8ACA7346}"
+          DTS:From="Package\Load STAGE tables from Us_Crossings\Port"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Load STAGE tables from Us_Crossings\State" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate STAGE tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{54da73cd-137b-4800-a1b6-d22be138f042}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate STAGE tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3AEFC41B-0516-4820-96FC-0FF78442FFCA}"
+          SQLTask:SqlStatementSource="truncate table dbo.Border;&#xA;truncate table dbo.Crossings;&#xA;truncate table dbo.ModeOfTransport;&#xA;truncate table dbo.Port;&#xA;truncate table dbo.State;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{76DE256C-920D-48A2-8923-244E9416BCD4}"
+      DTS:From="Package\Truncate STAGE tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load STAGE tables from Us_Crossings" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Borders"
+          TopLeft="72,43" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Crossings"
+          TopLeft="72,121" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load STAGE tables from Us_Crossings\ModeOfTransport"
+          TopLeft="58,221" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Port"
+          TopLeft="293,222" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Load STAGE tables from Us_Crossings\State"
+          TopLeft="291,119" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint]"
+          TopLeft="131.75,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 1]"
+          TopLeft="136.25,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 2]"
+          TopLeft="219,242.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,0"
+              Start="0,0"
+              End="66.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings.PrecedenceConstraints[Constraint 3]"
+          TopLeft="342.25,222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-61"
+              Start="0,0"
+              End="0,-53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="723,316"
+          Size="723,359"
+          Id="Package\Load STAGE tables from Us_Crossings"
+          TopLeft="7,158" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Truncate STAGE tables"
+          TopLeft="158,54" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="251.5,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,62"
+              Start="0,0"
+              End="117,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="113,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113,31"
+                    Point2="117,31"
+                    Point3="117,35" />
+                  <mssgle:LineSegment
+                    End="117,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Borders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source"
+          TopLeft="193,55" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination"
+          TopLeft="183,154" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings\Borders.Paths[OLE DB Source Output]"
+          TopLeft="268.25,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Borders\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Crossings">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination"
+          TopLeft="197,246" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source"
+          TopLeft="208,146" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings\Crossings.Paths[OLE DB Source Output]"
+          TopLeft="282.75,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Crossings\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load STAGE tables from Us_Crossings\ModeOfTransport">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source"
+          TopLeft="128,80" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination"
+          TopLeft="115,208" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings\ModeOfTransport.Paths[OLE DB Source Output]"
+          TopLeft="201.75,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86"
+              Start="0,0"
+              End="0,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\ModeOfTransport\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Port">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination"
+          TopLeft="105,172" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source"
+          TopLeft="105,49" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings\Port.Paths[OLE DB Source Output]"
+          TopLeft="180,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,81"
+              Start="0,0"
+              End="10.5,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.5"
+                    Point2="0,40.5"
+                    Point3="4,40.5" />
+                  <mssgle:LineSegment
+                    End="6.5,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,40.5"
+                    Point2="10.5,40.5"
+                    Point3="10.5,44.5" />
+                  <mssgle:LineSegment
+                    End="10.5,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\Port\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load STAGE tables from Us_Crossings\State">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source"
+          TopLeft="94,39" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination"
+          TopLeft="83,152" />
+        <EdgeLayout
+          Id="Package\Load STAGE tables from Us_Crossings\State.Paths[OLE DB Source Output]"
+          TopLeft="168.75,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\State\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load STAGE tables from Us_Crossings\State\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
