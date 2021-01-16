@@ -1,6 +1,5 @@
 # Data Warehouses and Business Intelligence - Final Project
 
-![db](image.jpg)
 
 The goal of this project was to design and create a small data warehouse project.
 
