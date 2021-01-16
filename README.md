@@ -1,5 +1,6 @@
 # Data Warehouses and Business Intelligence - Final Project
 
+![db](image.jpg)
 
 The goal of this project was to design and create a small data warehouse project.
 
@@ -19,7 +20,9 @@ US_Crossings_SSIS - contains a Visual Studio SQL Server Integration Services pro
 
 
 Funkcionalna_Specifikacija_Mislav_Spajic.docx  - document in Croatian explaining the project, the methods used and the goal.
+
 Izvjestaji.pbix - Microsoft PowerBI reports created for the project
+
 Mapiranje.xlsx - Excel sheet containg the table which shows mapping of the attributes
 
 
